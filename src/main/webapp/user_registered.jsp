@@ -9,17 +9,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>JSP-Hello</title>
 </head>
-<body>
+<c:set var="bg_color" scope="session" value="${cookie.bg_color_cookie.value}" />
+<body style="margin-left: 100px;background-color: ${bg_color}">
+<h2>Course Register</h2>
+<c:if test="${message!=null}">
+    <h3 style="color: red">${message}</h3>
+    <c:set var="link" value="course-list" />
+</c:if>
+<c:if test="${message==null}">
 <c:forEach items="${courseRegistered.history}" var="entry">
-    <h3>Semester ${entry.key}</h3><hr>
+    <h3>${semesters[entry.key]}</h3><hr>
     <c:forEach items="${entry.value}" var="subject">
         ${subject.subjectId},${subject.title},${subject.credit}<br>
     </c:forEach>
     <hr>
-
 </c:forEach>
-
+    <c:set var="link" value="index.jsp" />
+</c:if>
+<hr>
+<a href="${link}"><button>OK</button></a>
 </body>
 </html>

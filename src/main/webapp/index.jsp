@@ -5,9 +5,16 @@
 <head>
     <title>JSP - Hello World</title>
 </head>
-<body>
+<c:set var="bg_color" scope="session" value="${cookie.bg_color_cookie.value}" />
+<body style="margin-left: 100px;background-color: ${bg_color}">
+    Session Id: ${cookie.JSESSIONID.value}
     <h2>Menu</h2><hr>
     <a href="course-list">ลงทะเบียน</a><br>
     <a href="course-registered-history">ประวัติลงทะเบียน</a><br>
+    ----------------<br>
+    <a href="set-theme">Select your theme</a><br>
+    ----------------<br>
+    <a href="">Logout</a>
+
 </body>
 </html>

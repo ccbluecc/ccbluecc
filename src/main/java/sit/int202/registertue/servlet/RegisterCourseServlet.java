@@ -33,5 +33,6 @@ public class RegisterCourseServlet extends HttpServlet {
             courseRegistered.registerSubject(semester, CourseRepository.getSubject(semester, subjectId));
         }
         getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+
     }
 }
